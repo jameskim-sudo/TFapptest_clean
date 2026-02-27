@@ -1,5 +1,6 @@
 import svgPaths from "@/imports/svg-ghdg66m0v2";
-import imgGeminiGeneratedImageYt4Drtyt4Drtyt4D from "figma:asset/2cc215f0d18d8ab1402f656cde1ddfad7b46a3f1.png";
+const imgGeminiGeneratedImageYt4Drtyt4Drtyt4D =
+  "https://via.placeholder.com/200x200.png?text=AI+Coach";
 import { useState } from "react";
 import NavigationBar from "@/app/components/NavigationBar";
 import CharacterVideo from "@/app/components/CharacterVideo";
