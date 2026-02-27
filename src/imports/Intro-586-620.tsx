@@ -1,5 +1,5 @@
 import svgPaths from "./svg-zq93d3vowe";
-import img1202601191021Copy2 from "figma:asset/2c1917d96a88409fb8d4717ad4fb16b4d5dfac12.png";
+import { IMAGE_URLS } from "../config/imageUrls";
 
 function Group1() {
   return (
@@ -96,7 +96,11 @@ export default function Intro() {
     <div className="relative size-full" data-name="intro">
       <div className="-translate-x-1/2 -translate-y-1/2 absolute h-[640px] left-1/2 top-1/2 w-[360px]" data-name="1스크린샷 2026-01-19 오전 10.21 copy 2">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[143.74%] left-[-37.64%] max-w-none top-[-43.74%] w-[175.56%]" src={img1202601191021Copy2} />
+          <img
+            alt=""
+            className="absolute h-[143.74%] left-[-37.64%] max-w-none top-[-43.74%] w-[175.56%]"
+            src={IMAGE_URLS.INTRO_BACKGROUND_ALT}
+          />
         </div>
       </div>
       <div className="-translate-y-1/2 absolute flex flex-col font-['Pilseung_Gothic:Basic',sans-serif] justify-center leading-[0] left-[calc(50%-72px)] not-italic text-[#ff482c] text-[39.452px] top-[164px] tracking-[1.9726px] whitespace-nowrap">

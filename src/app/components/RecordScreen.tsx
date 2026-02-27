@@ -1,13 +1,8 @@
-const image_9030d15dab537e4ad4d816e28e5ab05b51ab759f =
-  "https://via.placeholder.com/40x40.png?text=Run";
-const image_c824d8df631bb947e8c5149a6368662bca277a35 =
-  "https://via.placeholder.com/40x40.png?text=Pilates";
-const image_10df07a8a2a07cc7e302d5afdc2f7461aa52a08b =
-  "https://via.placeholder.com/40x40.png?text=Golf";
 import svgPaths from "@/imports/svg-e2ysyc6iuz";
 import { ChevronLeft, ChevronRight, Flag, Activity, Footprints } from "lucide-react";
 import NavigationBar from "@/app/components/NavigationBar";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { IMAGE_URLS } from "../../config/imageUrls";
 
 function StatusBar() {
   return (
@@ -139,19 +134,19 @@ export default function RecordScreen({ onGolfClick, onPilatesClick, onRunningCli
         {/* Exercise Cards */}
         <div className="space-y-[10px]">
           <ExerciseCard
-            icon={<ImageWithFallback src={image_10df07a8a2a07cc7e302d5afdc2f7461aa52a08b} alt="Golf" className="size-5 object-cover" />}
+            icon={<ImageWithFallback src={IMAGE_URLS.RECORD_GOLF_ICON} alt="Golf" className="size-5 object-cover" />}
             title="Golf"
             description="스윙 궤적 및 밸런스 분석"
             onClick={onGolfClick}
           />
           <ExerciseCard
-            icon={<ImageWithFallback src={image_c824d8df631bb947e8c5149a6368662bca277a35} alt="Pilates" className="size-5 object-cover" />}
+            icon={<ImageWithFallback src={IMAGE_URLS.RECORD_PILATES_ICON} alt="Pilates" className="size-5 object-cover" />}
             title="Pilates"
             description="코어 정렬 및 유연성 체크"
             onClick={onPilatesClick}
           />
           <ExerciseCard
-            icon={<ImageWithFallback src={image_9030d15dab537e4ad4d816e28e5ab05b51ab759f} alt="Running" className="size-5 object-cover" />}
+            icon={<ImageWithFallback src={IMAGE_URLS.RECORD_RUNNING_ICON} alt="Running" className="size-5 object-cover" />}
             title="Running"
             description="주행 폼 및 보폭 분석"
             onClick={onRunningClick}

@@ -1,5 +1,5 @@
 import svgPaths from "./svg-w6qmt4whw1";
-import imgGeminiGeneratedImageYt4Drtyt4Drtyt4D from "figma:asset/4c6c84f5e10ffcbb42261d87d4cb3590ee3989e2.png";
+import { IMAGE_URLS } from "../config/imageUrls";
 
 function Notch() {
   return <div className="absolute h-[28.8px] left-0 right-0 top-0" data-name="Notch" />;
@@ -204,7 +204,11 @@ export default function Component360X() {
       </div>
       <div className="absolute h-[131px] left-[calc(50%+0.5px)] top-[172px] translate-x-[-50%] w-[109px]" data-name="Gemini_Generated_Image_yt4drtyt4drtyt4d">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[100.12%] left-[-5.39%] max-w-none top-0 w-[191.24%]" src={imgGeminiGeneratedImageYt4Drtyt4Drtyt4D} />
+          <img
+            alt=""
+            className="absolute h-[100.12%] left-[-5.39%] max-w-none top-0 w-[191.24%]"
+            src={IMAGE_URLS.COACH_CHARACTER_MAIN}
+          />
         </div>
       </div>
       <div className="absolute bg-[#f5573f] h-[70px] left-[20px] rounded-[8px] top-[364px] w-[320px]" />

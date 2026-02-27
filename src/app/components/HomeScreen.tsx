@@ -1,9 +1,8 @@
 import svgPaths from "@/imports/svg-ghdg66m0v2";
-const imgGeminiGeneratedImageYt4Drtyt4Drtyt4D =
-  "https://via.placeholder.com/200x200.png?text=AI+Coach";
 import { useState } from "react";
 import NavigationBar from "@/app/components/NavigationBar";
 import CharacterVideo from "@/app/components/CharacterVideo";
+import { IMAGE_URLS } from "../../config/imageUrls";
 
 interface HomeScreenProps {
   onTabChange?: (tab: string) => void;
@@ -146,7 +145,7 @@ export default function HomeScreen({ onTabChange, onGoalSettingClick }: HomeScre
             <div className="absolute left-1/2 top-[55px] -translate-x-1/2 w-[160px] h-[170px] z-0">
               <CharacterVideo 
                 videoSrc="/_videos/v1/dc4faad930f9a9fdaf0a59307069515d06d0e09c" 
-                imageSrc={imgGeminiGeneratedImageYt4Drtyt4Drtyt4D}
+                imageSrc={IMAGE_URLS.HOME_CHARACTER}
               />
             </div>
           </div>

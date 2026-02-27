@@ -1,5 +1,5 @@
 import svgPaths from "@/imports/svg-9xsnuh490b";
-import imgGeminiGeneratedImageYt4Drtyt4Drtyt4D from "figma:asset/4c6c84f5e10ffcbb42261d87d4cb3590ee3989e2.png";
+import { IMAGE_URLS } from "../../config/imageUrls";
 
 function Notch() {
   return <div className="absolute h-[28.8px] left-0 right-0 top-0" data-name="Notch" />;
@@ -186,7 +186,11 @@ export default function OnboardingScreen({ onStartClick, onLoginClick }: Onboard
       <div className="absolute bg-gradient-to-b from-[#e8ebf3] h-[239px] left-[20px] rounded-[18px] to-[#eaedf4] top-[105px] via-[#ebeff5] via-[49.038%] w-[320px]" />
       <div className="absolute h-[160.593px] left-[calc(50%+0.27px)] top-[144.2px] translate-x-[-50%] w-[133.451px]" data-name="Gemini_Generated_Image_yt4drtyt4drtyt4d">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[100.12%] left-[-5.39%] max-w-none top-0 w-[191.24%]" src={imgGeminiGeneratedImageYt4Drtyt4Drtyt4D} />
+          <img
+            alt=""
+            className="absolute h-[100.12%] left-[-5.39%] max-w-none top-0 w-[191.24%]"
+            src={IMAGE_URLS.COACH_CHARACTER_MAIN}
+          />
         </div>
       </div>
       <StatusBar />

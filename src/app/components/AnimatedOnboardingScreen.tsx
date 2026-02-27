@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import svgPaths from "@/imports/svg-hzb12rzwt1";
-
-const imgCharacterA =
-  "https://via.placeholder.com/200x200.png?text=Character+A";
-const imgCharacterB =
-  "https://via.placeholder.com/200x200.png?text=Character+B";
+import { IMAGE_URLS } from "../../config/imageUrls";
 
 function Notch() {
   return (
@@ -439,8 +435,8 @@ export default function AnimatedOnboardingScreen({
 
   // Debug: Check if images are loaded
   useEffect(() => {
-    console.log("Character A image:", imgCharacterA);
-    console.log("Character B image:", imgCharacterB);
+    console.log("Character A image:", IMAGE_URLS.ONBOARDING_CHARACTER_A);
+    console.log("Character B image:", IMAGE_URLS.ONBOARDING_CHARACTER_B);
   }, []);
 
   return (
@@ -509,8 +505,8 @@ export default function AnimatedOnboardingScreen({
                 className="absolute h-[100.12%] left-[-5.39%] max-w-none top-0 w-[191.24%]"
                 src={
                   currentCharacter === "A"
-                    ? imgCharacterA
-                    : imgCharacterB
+                      ? IMAGE_URLS.ONBOARDING_CHARACTER_A
+                      : IMAGE_URLS.ONBOARDING_CHARACTER_B
                 }
               />
             </div>

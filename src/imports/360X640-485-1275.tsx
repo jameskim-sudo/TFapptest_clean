@@ -1,5 +1,5 @@
 import svgPaths from "./svg-icudxm7ac5";
-import imgGeminiGeneratedImageYt4Drtyt4Drtyt4D from "figma:asset/a69967323cbe77265989fdbc93ba9164d70539ee.png";
+import { IMAGE_URLS } from "../config/imageUrls";
 
 function Notch() {
   return <div className="absolute h-[28.8px] left-0 right-0 top-0" data-name="Notch" />;
@@ -221,7 +221,11 @@ function B() {
     <div className="absolute h-[158px] left-[116px] overflow-clip top-[162px] w-[127px]" data-name="B">
       <div className="absolute h-[160.593px] left-[calc(50%+0.23px)] top-[-3px] translate-x-[-50%] w-[133.451px]" data-name="Gemini_Generated_Image_yt4drtyt4drtyt4d">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[100.13%] left-[-5.39%] max-w-none top-0 w-[191.22%]" src={imgGeminiGeneratedImageYt4Drtyt4Drtyt4D} />
+          <img
+            alt=""
+            className="absolute h-[100.13%] left-[-5.39%] max-w-none top-0 w-[191.22%]"
+            src={IMAGE_URLS.COACH_CHARACTER_ALT}
+          />
         </div>
       </div>
     </div>

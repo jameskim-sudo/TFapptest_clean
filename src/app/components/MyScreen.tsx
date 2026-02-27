@@ -1,11 +1,10 @@
-const image_06d7062251adc7112c0927697c1d74480e9a80c6 =
-  "https://via.placeholder.com/80x80.png?text=Profile";
 import svgPaths from "@/imports/svg-mbqd2fmnyn";
 import NavigationBar from "@/app/components/NavigationBar";
 import { useCoachTone } from "@/app/contexts/CoachToneContext";
 import { useState } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import ImportedStatusBar from "@/imports/Container-753-1617";
+import { IMAGE_URLS } from "../../config/imageUrls";
 
 interface MyScreenProps {
   onTabChange?: (tab: string) => void;
@@ -52,7 +51,7 @@ function Container2() {
   return (
     <div className="absolute left-0 rounded-full size-[63.989px] top-0 overflow-hidden" data-name="Container">
       <ImageWithFallback
-        src={image_06d7062251adc7112c0927697c1d74480e9a80c6}
+        src={IMAGE_URLS.PROFILE_AVATAR}
         alt="Profile"
         className="w-full h-full object-cover"
       />

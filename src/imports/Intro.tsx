@@ -1,7 +1,5 @@
 import svgPaths from "./svg-zq93d3vowe";
-
-const bgImage =
-  "https://via.placeholder.com/400x800.png?text=Intro+Background";
+import { IMAGE_URLS } from "../config/imageUrls";
 
 function Group1() {
   return (
@@ -98,7 +96,7 @@ export default function Intro() {
     <div className="relative w-[393px] h-[852px] overflow-hidden bg-[#00000000]" data-name="intro">
       {/* 배경 이미지 - 전체 */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <img alt="배경" className="w-full h-full object-cover" src={bgImage} />
+        <img alt="배경" className="w-full h-full object-cover" src={IMAGE_URLS.INTRO_BACKGROUND} />
       </div>
       
       <div className="absolute flex flex-col font-['Pilseung_Gothic',sans-serif] justify-center leading-[0] left-1/2 -translate-x-1/2 not-italic text-[#ff482c] text-[45px] top-[202px] tracking-[2.25px] whitespace-nowrap z-10">
