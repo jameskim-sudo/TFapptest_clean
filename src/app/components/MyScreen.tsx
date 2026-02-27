@@ -1,4 +1,5 @@
-import image_06d7062251adc7112c0927697c1d74480e9a80c6 from 'figma:asset/06d7062251adc7112c0927697c1d74480e9a80c6.png'
+const image_06d7062251adc7112c0927697c1d74480e9a80c6 =
+  "https://via.placeholder.com/80x80.png?text=Profile";
 import svgPaths from "@/imports/svg-mbqd2fmnyn";
 import NavigationBar from "@/app/components/NavigationBar";
 import { useCoachTone } from "@/app/contexts/CoachToneContext";
