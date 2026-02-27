@@ -201,7 +201,7 @@ export default function HomeScreen({ onTabChange, onGoalSettingClick }: HomeScre
                     style={{ boxShadow: '0 0 2px rgba(137, 137, 137, 0.2)' }}
                     onClick={() => window.open('https://youtube.com/shorts/H-Y2JWM6XNk?si=AK2PDxuGzF9e1DSO', '_blank', 'width=600,height=800')}
                   >
-                    <p className="font-['Noto_Sans_CJK',sans-serif] font-bold text-[14px] text-white tracking-[-0.5px] text-[#fc4d42]">
+                    <p className="font-['Noto_Sans_CJK',sans-serif] font-bold text-[14px] tracking-[-0.5px] text-[#000000]">
                       나의 Recap 보기
                     </p>
                     <button
