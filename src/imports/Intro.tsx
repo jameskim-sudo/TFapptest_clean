@@ -1,5 +1,7 @@
 import svgPaths from "./svg-zq93d3vowe";
-import bgImage from "../assets/e83540d6d6dae070c47448500843e678370af154.png";
+
+const bgImage =
+  "https://via.placeholder.com/400x800.png?text=Intro+Background";
 
 function Group1() {
   return (
