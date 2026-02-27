@@ -1,5 +1,5 @@
 import svgPaths from "./svg-zq93d3vowe";
-import bgImage from "figma:asset/e83540d6d6dae070c47448500843e678370af154.png";
+import bgImage from "../assets/e83540d6d6dae070c47448500843e678370af154.png";
 
 function Group1() {
   return (
