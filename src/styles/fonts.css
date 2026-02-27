@@ -1,0 +1,20 @@
+/* Noto Sans CJK KR 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 백업: Pretendard 폰트 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* 백업: Spoqa Han Sans Neo 폰트 */
+@import url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/css/SpoqaHanSansNeo.css');
+
+/* Pilseung Gothic 폰트 */
+@font-face {
+    font-family: 'Pilseung Gothic';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/PilseungGothic/PilseungGothic.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/PilseungGothic/PilseungGothic.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/PilseungGothic/PilseungGothic.otf') format('opentype'),
+         url('https://cdn.jsdelivr.net/gh/fonts-archive/PilseungGothic/PilseungGothic.ttf') format('truetype');
+}
