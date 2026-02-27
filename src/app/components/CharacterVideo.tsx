@@ -1,4 +1,5 @@
-import image_d50caf71142aae432531d28676918ccac81e85f8 from 'figma:asset/d50caf71142aae432531d28676918ccac81e85f8.png'
+const image_d50caf71142aae432531d28676918ccac81e85f8 =
+  "https://via.placeholder.com/200x200.png?text=AI+Character";
 import { useState } from "react";
 
 interface CharacterVideoProps {
