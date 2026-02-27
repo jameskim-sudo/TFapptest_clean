@@ -1,6 +1,9 @@
-import image_9030d15dab537e4ad4d816e28e5ab05b51ab759f from 'figma:asset/9030d15dab537e4ad4d816e28e5ab05b51ab759f.png'
-import image_c824d8df631bb947e8c5149a6368662bca277a35 from 'figma:asset/c824d8df631bb947e8c5149a6368662bca277a35.png'
-import image_10df07a8a2a07cc7e302d5afdc2f7461aa52a08b from 'figma:asset/10df07a8a2a07cc7e302d5afdc2f7461aa52a08b.png'
+const image_9030d15dab537e4ad4d816e28e5ab05b51ab759f =
+  "https://via.placeholder.com/40x40.png?text=Run";
+const image_c824d8df631bb947e8c5149a6368662bca277a35 =
+  "https://via.placeholder.com/40x40.png?text=Pilates";
+const image_10df07a8a2a07cc7e302d5afdc2f7461aa52a08b =
+  "https://via.placeholder.com/40x40.png?text=Golf";
 import svgPaths from "@/imports/svg-e2ysyc6iuz";
 import { ChevronLeft, ChevronRight, Flag, Activity, Footprints } from "lucide-react";
 import NavigationBar from "@/app/components/NavigationBar";
