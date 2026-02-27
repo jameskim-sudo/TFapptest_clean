@@ -1,16 +1,11 @@
-const image_a1b0bb6dd882c17cbb3396c01a5b82fb28bb31b2 =
-  "https://via.placeholder.com/150x150.png?text=Report+BG";
 import { useState } from "react";
 import svgPaths from "@/imports/svg-w6qmt4whw1";
 import logoSvgPaths from "@/imports/svg-2p1hjomycv";
-const imgCharacter =
-  "https://via.placeholder.com/150x150.png?text=Character";
-const imgBird =
-  "https://via.placeholder.com/150x150.png?text=Bird";
 import { ChevronLeft, ChevronRight, Home, PenLine, BarChart3, User } from "lucide-react";
 import { useCoachTone } from "@/app/contexts/CoachToneContext";
 import NavigationBar from "@/app/components/NavigationBar";
 import ImportedStatusBar from "@/imports/Container-754-36";
+import { IMAGE_URLS } from "../../config/imageUrls";
 
 interface ReportScreenProps {
   exerciseType: "golf" | "pilates" | "running";
@@ -232,12 +227,14 @@ export default function ReportScreen({ exerciseType, onBackClick, onTabChange }:
           </button>
 
           {/* Always show character */}
-          <div className={`absolute h-[131px] left-1/2 top-[67px] -translate-x-1/2 w-[109px] transition-opacity duration-300 ${showDetail ? 'opacity-0' : 'opacity-100'}`}>
+          <div className={`absolute h-[131px] left-1/2 top-[67px] -translate-x-1/2 w-[109px] z-20 transition-opacity duration-300 ${showDetail ? 'opacity-0' : 'opacity-100'}`}>
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img 
                 alt="Bird Character" 
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-auto object-contain" 
-                src={image_a1b0bb6dd882c17cbb3396c01a5b82fb28bb31b2}
+                src={IMAGE_URLS.REPORT_MAIN_CHARACTER}
+                loading="eager"
+                decoding="async"
               />
             </div>
           </div>
