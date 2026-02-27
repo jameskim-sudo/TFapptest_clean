@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import svgPaths from "@/imports/svg-hzb12rzwt1";
-import imgCharacterA from "figma:asset/9818a368554380cfa59e323aeb27fd1e5c1e6aa8.png";
-import imgCharacterB from "figma:asset/03a042c28c78eb7803b3b415a9b66e54c5d3412b.png";
+
+const imgCharacterA =
+  "https://via.placeholder.com/200x200.png?text=Character+A";
+const imgCharacterB =
+  "https://via.placeholder.com/200x200.png?text=Character+B";
 
 function Notch() {
   return (
