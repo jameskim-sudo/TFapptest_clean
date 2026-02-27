@@ -1,9 +1,12 @@
-import image_a1b0bb6dd882c17cbb3396c01a5b82fb28bb31b2 from 'figma:asset/a1b0bb6dd882c17cbb3396c01a5b82fb28bb31b2.png'
+const image_a1b0bb6dd882c17cbb3396c01a5b82fb28bb31b2 =
+  "https://via.placeholder.com/150x150.png?text=Report+BG";
 import { useState } from "react";
 import svgPaths from "@/imports/svg-w6qmt4whw1";
 import logoSvgPaths from "@/imports/svg-2p1hjomycv";
-import imgCharacter from "figma:asset/4c6c84f5e10ffcbb42261d87d4cb3590ee3989e2.png";
-import imgBird from "figma:asset/f95a49e14c483b9872b88b22d26ac435e61d2e9c.png";
+const imgCharacter =
+  "https://via.placeholder.com/150x150.png?text=Character";
+const imgBird =
+  "https://via.placeholder.com/150x150.png?text=Bird";
 import { ChevronLeft, ChevronRight, Home, PenLine, BarChart3, User } from "lucide-react";
 import { useCoachTone } from "@/app/contexts/CoachToneContext";
 import NavigationBar from "@/app/components/NavigationBar";
