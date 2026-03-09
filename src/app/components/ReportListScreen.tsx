@@ -334,7 +334,7 @@ export default function ReportListScreen({ onTabChange, onReportClick }: ReportL
 
   return (
     <div className="bg-white flex flex-col flex-1 min-h-0 overflow-hidden">
-      <div className="flex-shrink-0 relative">
+      <div className="flex-shrink-0 relative h-[42px]">
         <StatusBar />
       </div>
 

@@ -924,6 +924,7 @@ export default function MyScreen({ onTabChange }: MyScreenProps) {
       <div className="absolute h-[42px] left-0 right-0 overflow-clip top-0 w-full">
         <ImportedStatusBar />
       </div>
+      <div className="flex-1 min-h-0" aria-hidden="true" />
       <NavigationBar activeTab="my" onTabChange={handleTabChange} />
       <Container26 />
     </div>

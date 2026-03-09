@@ -174,3 +174,43 @@ npx cap open android
 - **Capacitor 설정 파일 예시**가 필요하면 프로젝트 루트에 `capacitor.config.ts` 를 추가해 두었으니, `webDir`만 빌드 결과에 맞게 수정하면 됩니다.
 
 **요약: “어떤 방법 써야 하냐” → Capacitor. “내가 해줘야 행동이 있냐” → 네. 터미널에서 `pnpm install` → `pnpm run build` → `npx cap add ios` / `npx cap add android` (최초 1회) → `pnpm run cap:sync` → `cap:open:ios` 또는 `cap:open:android` 까지 실행해 주면 됩니다.**
+
+---
+
+## 7. Android Studio에서 화면이 안 나올 때 (흰 화면 / 출력 안 됨)
+
+### 가능한 원인
+- 웹 빌드 결과가 Android 앱에 반영되지 않음 (`cap sync` 누락)
+- 에셋 경로가 절대 경로(`/assets/...`)라 WebView에서 로드 실패 → **Vite `base: './'`** 로 해결
+- WebView/React 쪽 JavaScript 오류
+
+### 조치 순서
+
+1. **다시 빌드 후 동기화**  
+   터미널에서:
+   ```bash
+   npm run build
+   npx cap sync
+   ```
+   그다음 Android Studio에서 **Run** 다시 실행.
+
+2. **Logcat으로 에러 확인**  
+   - Android Studio 하단 **Logcat** 탭 열기  
+   - 필터에 `chromium` 또는 `Capacitor` 또는 `Console` 입력  
+   - 앱 실행 후 빨간색 에러 메시지 확인 → 메시지 내용으로 원인 파악
+
+3. **Chrome으로 WebView 디버깅**  
+   - PC에서 Chrome 실행 → 주소창에 `chrome://inspect` 입력  
+   - 에뮬레이터/연결된 기기에서 앱 실행  
+   - 목록에 해당 WebView가 보이면 **inspect** 클릭  
+   - 열리는 DevTools의 **Console** 탭에서 JavaScript 에러 확인
+
+4. **dist 폴더 확인**  
+   - 프로젝트 루트의 `dist` 폴더에 `index.html`, `assets` 폴더가 있는지 확인  
+   - 없으면 `npm run build`가 실패한 것이므로, 터미널 빌드 로그 확인
+
+5. **Android 쪽 웹 에셋 경로 확인**  
+   - `android/app/src/main/assets/public/` 안에 `index.html`, `assets` 등이 들어와 있는지 확인  
+   - 비어 있거나 오래된 파일만 있으면 `npx cap sync`를 다시 실행
+
+위 순서대로 해도 해결되지 않으면, Logcat/Chrome Console에 나온 **에러 메시지**를 기준으로 추가로 조치하면 됩니다.

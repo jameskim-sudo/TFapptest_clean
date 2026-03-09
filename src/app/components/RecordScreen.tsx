@@ -118,8 +118,8 @@ export default function RecordScreen({ onGolfClick, onPilatesClick, onRunningCli
 
   return (
     <div className="bg-white flex flex-col flex-1 min-h-0">
-      {/* 상단 고정: StatusBar + TopBar */}
-      <div className="flex-shrink-0 relative">
+      {/* 상단 고정: StatusBar(42px) + TopBar(54px) = 96px 영역 확보 */}
+      <div className="flex-shrink-0 relative h-[96px]">
         <StatusBar />
         <TopBar />
       </div>
