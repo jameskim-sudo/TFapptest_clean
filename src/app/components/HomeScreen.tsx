@@ -113,12 +113,14 @@ export default function HomeScreen({ onTabChange, onGoalSettingClick }: HomeScre
   };
 
   return (
-    <div className="bg-white relative size-full overflow-hidden">
-      <StatusBar />
-      
-      {/* Scrollable Content */}
-      <div className="absolute top-[42px] left-0 right-0 bottom-[61.875px] overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        <div className="pb-4">
+    <div className="bg-white flex flex-col flex-1 min-h-0 overflow-hidden">
+      <div className="flex-shrink-0 relative">
+        <StatusBar />
+      </div>
+
+      {/* 본문: 스크롤 가능 */}
+      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="pb-4 relative">
           {/* Logo and App Name */}
           <div className="absolute left-[20px] top-[20px] flex items-center gap-2">
             <div className="h-[23px] w-[28.703px]">

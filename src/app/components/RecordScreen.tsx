@@ -117,12 +117,15 @@ export default function RecordScreen({ onGolfClick, onPilatesClick, onRunningCli
   };
 
   return (
-    <div className="bg-white relative size-full">
-      <StatusBar />
-      <TopBar />
+    <div className="bg-white flex flex-col flex-1 min-h-0">
+      {/* 상단 고정: StatusBar + TopBar */}
+      <div className="flex-shrink-0 relative">
+        <StatusBar />
+        <TopBar />
+      </div>
 
-      {/* Content */}
-      <div className="absolute top-[96px] left-0 right-0 px-5">
+      {/* 본문: 스크롤 가능 */}
+      <div className="flex-1 min-h-0 overflow-auto px-5">
         <div className="flex flex-col font-['Noto_Sans_CJK',sans-serif] font-medium leading-[23px] not-italic text-[#ff482c] text-[20px] tracking-[1px] mb-2">
           <p className="mb-0 mt-[10px] text-[21px]">어떤 운동을</p>
           <p className="mt-[2px]">분석할까요?</p>
@@ -131,8 +134,7 @@ export default function RecordScreen({ onGolfClick, onPilatesClick, onRunningCli
           맞춤형 AI 코칭이 준비되어 있습니다.
         </p>
 
-        {/* Exercise Cards */}
-        <div className="space-y-[10px]">
+        <div className="space-y-[10px] pb-4">
           <ExerciseCard
             icon={<ImageWithFallback src={IMAGE_URLS.RECORD_GOLF_ICON} alt="Golf" className="size-5 object-cover" />}
             title="Golf"

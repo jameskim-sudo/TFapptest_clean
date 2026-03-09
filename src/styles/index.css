@@ -1,3 +1,21 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* 반응형: 루트 높이를 실제 보이는 영역으로 통일 */
+html {
+  height: 100%;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh;
+}
+body {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+}
+#root {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}

@@ -11,14 +11,13 @@ export default function NavigationBar({ activeTab, onTabChange }: NavigationBarP
 
   return (
     <div 
-      className="fixed left-0 right-0 bg-white z-50" 
+      className="bg-white z-50 flex-shrink-0 w-full border-t border-[#e5e5e5]"
       data-name="Navigation"
       style={{
-        bottom: 0,
         paddingBottom: 'env(safe-area-inset-bottom, 0px)'
       }}
     >
-      <div aria-hidden="true" className="absolute border-[#e5e5e5] border-[0.804px_0px_0px] border-solid inset-0 pointer-events-none" />
+      <div aria-hidden="true" className="absolute border-0 border-solid inset-0 pointer-events-none" />
       <div className="h-[61.071px] relative w-full" data-name="Container">
         <div className="flex flex-row items-center size-full">
           <div className="content-stretch flex items-center justify-between pl-[47.335px] pr-[47.36px] py-0 relative size-full">

@@ -197,14 +197,16 @@ export default function ReportScreen({ exerciseType, onBackClick, onTabChange }:
   const content = reportContent[exerciseType];
 
   return (
-    <div className="bg-white relative size-full">
-      <div className="absolute h-[42px] left-0 right-0 overflow-clip top-0 w-full">
-        <ImportedStatusBar />
+    <div className="bg-white flex flex-col flex-1 min-h-0 overflow-hidden">
+      <div className="flex-shrink-0 relative h-[42px]">
+        <div className="absolute h-[42px] left-0 right-0 overflow-clip top-0 w-full">
+          <ImportedStatusBar />
+        </div>
       </div>
       <LogoSection onBackClick={onBackClick} />
 
-      {/* Scrollable content area */}
-      <div className="absolute top-[105px] left-0 right-0 bottom-[61.875px] overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      {/* 본문: 스크롤 가능 */}
+      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="relative min-h-full px-[20px]">
           {/* Main gradient box */}
           <div className="absolute bg-gradient-to-b from-[#e8ebf3] h-[239px] left-[20px] right-[20px] rounded-[18px] to-[#eaedf4] top-0 via-[#ebeff5] via-[49.038%]" />

@@ -134,51 +134,97 @@ export default function App() {
 
   return (
     <CoachToneProvider>
-      <div className="w-full h-screen mx-auto bg-gray-100 overflow-hidden flex items-center justify-center">
-        <div className="w-[393px] h-[852px] relative bg-white overflow-hidden" style={{
-          maxHeight: '100dvh' // Dynamic viewport height for mobile browsers, falls back to 100vh if not supported
-        }}>
+      <div className="w-full min-h-dvh min-h-[100vh] mx-auto bg-gray-100 flex items-center justify-center" style={{ height: '100dvh', minHeight: '100vh' }}>
+        <div
+          className="w-full max-w-[393px] relative bg-white flex flex-col overflow-hidden h-full"
+          style={{ 
+            height: '100dvh', 
+            maxHeight: '100dvh', 
+            minHeight: 0,
+            paddingTop: 'env(safe-area-inset-top, 0px)'
+          }}
+        >
           {currentScreen === "intro" && (
-            <div onClick={handleIntroButtonClick}>
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden" onClick={handleIntroButtonClick}>
               <Intro />
             </div>
           )}
-          {currentScreen === "splash" && <SplashScreen />}
+          {currentScreen === "splash" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <SplashScreen />
+            </div>
+          )}
           {currentScreen === "onboarding" && (
-            <AnimatedOnboardingScreen 
-              onStartClick={handleStartClick} 
-              onLoginClick={handleLoginClick} 
-            />
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <AnimatedOnboardingScreen 
+                onStartClick={handleStartClick} 
+                onLoginClick={handleLoginClick} 
+              />
+            </div>
           )}
           {currentScreen === "login" && (
-            <LoginScreen 
-              onBackClick={handleBackToOnboarding} 
-              onLoginSuccess={handleLoginSuccess} 
-            />
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <LoginScreen 
+                onBackClick={handleBackToOnboarding} 
+                onLoginSuccess={handleLoginSuccess} 
+              />
+            </div>
           )}
-          {currentScreen === "home" && <HomeScreen onTabChange={handleTabChange} onGoalSettingClick={handleGoalSettingClick} />}
+          {currentScreen === "home" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <HomeScreen onTabChange={handleTabChange} onGoalSettingClick={handleGoalSettingClick} />
+            </div>
+          )}
           {currentScreen === "record" && (
-            <RecordScreen 
-              onTabChange={handleTabChange} 
-              onGolfClick={handleGolfClick}
-              onPilatesClick={handlePilatesClick}
-              onRunningClick={handleRunningClick}
-            />
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <RecordScreen 
+                onTabChange={handleTabChange} 
+                onGolfClick={handleGolfClick}
+                onPilatesClick={handlePilatesClick}
+                onRunningClick={handleRunningClick}
+              />
+            </div>
           )}
           {currentScreen === "golfCoaching" && (
-            <GolfCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <GolfCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
+            </div>
           )}
           {currentScreen === "pilatesCoaching" && (
-            <PilatesCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <PilatesCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
+            </div>
           )}
           {currentScreen === "runningCoaching" && (
-            <RunningCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <RunningCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
+            </div>
           )}
-          {currentScreen === "loading" && <LoadingScreen onBackClick={handleBackFromLoading} />}
-          {currentScreen === "report" && <ReportScreen exerciseType={currentExerciseType} onBackClick={handleBackFromReport} onTabChange={handleReportTabChange} />}
-          {currentScreen === "reportList" && <ReportListScreen onTabChange={handleReportTabChange} onReportClick={handleReportClick} />}
-          {currentScreen === "my" && <MyScreen onTabChange={handleTabChange} />}
-          {currentScreen === "goalSetting" && <GoalSettingScreen onBackClick={handleBackFromGoalSetting} />}
+          {currentScreen === "loading" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <LoadingScreen onBackClick={handleBackFromLoading} />
+            </div>
+          )}
+          {currentScreen === "report" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <ReportScreen exerciseType={currentExerciseType} onBackClick={handleBackFromReport} onTabChange={handleReportTabChange} />
+            </div>
+          )}
+          {currentScreen === "reportList" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <ReportListScreen onTabChange={handleReportTabChange} onReportClick={handleReportClick} />
+            </div>
+          )}
+          {currentScreen === "my" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <MyScreen onTabChange={handleTabChange} />
+            </div>
+          )}
+          {currentScreen === "goalSetting" && (
+            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+              <GoalSettingScreen onBackClick={handleBackFromGoalSetting} />
+            </div>
+          )}
         </div>
       </div>
     </CoachToneProvider>

@@ -333,11 +333,12 @@ export default function ReportListScreen({ onTabChange, onReportClick }: ReportL
   });
 
   return (
-    <div className="bg-white relative size-full overflow-hidden">
-      <StatusBar />
+    <div className="bg-white flex flex-col flex-1 min-h-0 overflow-hidden">
+      <div className="flex-shrink-0 relative">
+        <StatusBar />
+      </div>
 
-      {/* Scrollable content */}
-      <div className="absolute top-[42px] left-0 right-0 bottom-[61.875px] overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="flex-1 min-h-0 overflow-y-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <div className="px-[20px] pb-[30px] pt-[20px]">
           {/* Title Section */}
           <div className="mb-[12px]">

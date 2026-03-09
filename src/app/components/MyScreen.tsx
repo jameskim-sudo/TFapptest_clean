@@ -919,7 +919,7 @@ export default function MyScreen({ onTabChange }: MyScreenProps) {
   };
 
   return (
-    <div className="bg-white relative w-[393px] h-[852px] mx-auto overflow-hidden" data-name="마이">
+    <div className="bg-white flex flex-col flex-1 min-h-0 overflow-hidden w-full max-w-[393px] mx-auto" data-name="마이">
       <Container17 isToneExpanded={isToneExpanded} onToneToggle={toggleTone} currentTone={tone} onToneChange={changeTone} />
       <div className="absolute h-[42px] left-0 right-0 overflow-clip top-0 w-full">
         <ImportedStatusBar />
