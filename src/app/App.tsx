@@ -58,18 +58,11 @@ export default function App() {
   };
 
   const handleTabChange = (tab: string) => {
-    if (tab === "home") {
-      setCurrentScreen("home");
-    } else if (tab === "record") {
-      setCurrentScreen("record");
-    } else if (tab === "report") {
-      setCurrentScreen("reportList");
-    } else if (tab === "my") {
-      setCurrentScreen("my");
-    }
+    if (tab === "home") setCurrentScreen("home");
+    else if (tab === "record") setCurrentScreen("record");
+    else if (tab === "report") setCurrentScreen("reportList");
+    else if (tab === "my") setCurrentScreen("my");
   };
-
-  const handleGolfClick = () => {
     setCurrentScreen("golfCoaching");
     setCurrentExerciseType("golf");
   };
@@ -100,19 +93,7 @@ export default function App() {
     setCurrentScreen("record");
   };
 
-  const handleReportTabChange = (tab: string) => {
-    if (tab === "home") {
-      setCurrentScreen("home");
-    } else if (tab === "record") {
-      setCurrentScreen("record");
-    } else if (tab === "report") {
-      setCurrentScreen("reportList");
-    } else if (tab === "my") {
-      setCurrentScreen("my");
-    }
-  };
-
-  const handleReportClick = () => {
+  const handleGolfClick = () => {
     setCurrentScreen("report");
   };
 
@@ -207,12 +188,12 @@ export default function App() {
           )}
           {currentScreen === "report" && (
             <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <ReportScreen exerciseType={currentExerciseType} onBackClick={handleBackFromReport} onTabChange={handleReportTabChange} />
+              <ReportScreen exerciseType={currentExerciseType} onBackClick={handleBackFromReport} onTabChange={handleTabChange} />
             </div>
           )}
           {currentScreen === "reportList" && (
             <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <ReportListScreen onTabChange={handleReportTabChange} onReportClick={handleReportClick} />
+              <ReportListScreen onTabChange={handleTabChange} onReportClick={handleReportClick} />
             </div>
           )}
           {currentScreen === "my" && (
