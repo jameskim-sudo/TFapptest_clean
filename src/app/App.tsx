@@ -63,6 +63,8 @@ export default function App() {
     else if (tab === "report") setCurrentScreen("reportList");
     else if (tab === "my") setCurrentScreen("my");
   };
+
+  const handleGolfClick = () => {
     setCurrentScreen("golfCoaching");
     setCurrentExerciseType("golf");
   };
@@ -93,7 +95,7 @@ export default function App() {
     setCurrentScreen("record");
   };
 
-  const handleGolfClick = () => {
+  const handleReportClick = () => {
     setCurrentScreen("report");
   };
 
