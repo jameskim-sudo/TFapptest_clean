@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Intro from "@/imports/Intro";
 import SplashScreen from "@/app/components/SplashScreen";
 import AnimatedOnboardingScreen from "@/app/components/AnimatedOnboardingScreen";
@@ -16,197 +16,150 @@ import GoalSettingScreen from "@/app/components/GoalSettingScreen";
 import { CoachToneProvider } from "@/app/contexts/CoachToneContext";
 
 type Screen = "intro" | "splash" | "onboarding" | "login" | "home" | "record" | "golfCoaching" | "pilatesCoaching" | "runningCoaching" | "loading" | "report" | "reportList" | "my" | "goalSetting";
+type ExerciseType = "golf" | "pilates" | "running";
+
+const TAB_TO_SCREEN: Record<string, Screen> = {
+  home: "home",
+  record: "record",
+  report: "reportList",
+  my: "my",
+} as const;
+
+function ScreenLayout({ children }: { children: React.ReactNode }) {
+  return <div className="flex flex-col flex-1 min-h-0 overflow-hidden">{children}</div>;
+}
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>("intro");
-  const [currentExerciseType, setCurrentExerciseType] = useState<"golf" | "pilates" | "running">("golf");
+  const [currentExerciseType, setCurrentExerciseType] = useState<ExerciseType>("golf");
+
+  const navigate = useCallback((screen: Screen) => {
+    setCurrentScreen(screen);
+  }, []);
 
   // Auto-advance from splash to onboarding after 2 seconds
   useEffect(() => {
     if (currentScreen === "splash") {
-      const timer = setTimeout(() => {
-        setCurrentScreen("onboarding");
-      }, 2000);
+      const timer = setTimeout(() => navigate("onboarding"), 2000);
       return () => clearTimeout(timer);
     }
-  }, [currentScreen]);
+  }, [currentScreen, navigate]);
 
   // Auto-advance from loading to report after 3 seconds
   useEffect(() => {
     if (currentScreen === "loading") {
-      const timer = setTimeout(() => {
-        setCurrentScreen("report");
-      }, 3000);
+      const timer = setTimeout(() => navigate("report"), 3000);
       return () => clearTimeout(timer);
     }
-  }, [currentScreen]);
+  }, [currentScreen, navigate]);
 
-  const handleStartClick = () => {
-    setCurrentScreen("home");
-  };
+  const handleTabChange = useCallback(
+    (tab: string) => {
+      const screen = TAB_TO_SCREEN[tab];
+      if (screen) setCurrentScreen(screen);
+    },
+    []
+  );
 
-  const handleLoginClick = () => {
-    setCurrentScreen("login");
-  };
-
-  const handleBackToOnboarding = () => {
-    setCurrentScreen("onboarding");
-  };
-
-  const handleLoginSuccess = () => {
-    setCurrentScreen("home");
-  };
-
-  const handleTabChange = (tab: string) => {
-    if (tab === "home") setCurrentScreen("home");
-    else if (tab === "record") setCurrentScreen("record");
-    else if (tab === "report") setCurrentScreen("reportList");
-    else if (tab === "my") setCurrentScreen("my");
-  };
-
-  const handleGolfClick = () => {
-    setCurrentScreen("golfCoaching");
-    setCurrentExerciseType("golf");
-  };
-
-  const handlePilatesClick = () => {
-    setCurrentScreen("pilatesCoaching");
-    setCurrentExerciseType("pilates");
-  };
-
-  const handleRunningClick = () => {
-    setCurrentScreen("runningCoaching");
-    setCurrentExerciseType("running");
-  };
-
-  const handleBackToRecord = () => {
-    setCurrentScreen("record");
-  };
-
-  const handleCoachingComplete = () => {
-    setCurrentScreen("loading");
-  };
-
-  const handleBackFromLoading = () => {
-    setCurrentScreen("record");
-  };
-
-  const handleBackFromReport = () => {
-    setCurrentScreen("record");
-  };
-
-  const handleReportClick = () => {
-    setCurrentScreen("report");
-  };
-
-  const handleMyClick = () => {
-    setCurrentScreen("my");
-  };
-
-  const handleGoalSettingClick = () => {
-    setCurrentScreen("goalSetting");
-  };
-
-  const handleBackFromGoalSetting = () => {
-    setCurrentScreen("home");
-  };
-
-  const handleIntroButtonClick = () => {
-    setCurrentScreen("home");
-  };
+  const handleExerciseClick = useCallback((type: ExerciseType) => {
+    setCurrentExerciseType(type);
+    setCurrentScreen(`${type}Coaching` as Screen);
+  }, []);
 
   return (
     <CoachToneProvider>
       <div className="w-full min-h-dvh min-h-[100vh] mx-auto bg-gray-100 flex items-center justify-center" style={{ height: '100dvh', minHeight: '100vh' }}>
         <div
           className="w-full max-w-[393px] relative bg-white flex flex-col overflow-hidden h-full"
-          style={{ 
-            height: '100dvh', 
-            maxHeight: '100dvh', 
+          style={{
+            height: '100dvh',
+            maxHeight: '100dvh',
             minHeight: 0,
             paddingTop: 'env(safe-area-inset-top, 0px)'
           }}
         >
           {currentScreen === "intro" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden" onClick={handleIntroButtonClick}>
-              <Intro />
-            </div>
+            <ScreenLayout>
+              <div onClick={() => navigate("home")}>
+                <Intro />
+              </div>
+            </ScreenLayout>
           )}
           {currentScreen === "splash" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+            <ScreenLayout>
               <SplashScreen />
-            </div>
+            </ScreenLayout>
           )}
           {currentScreen === "onboarding" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <AnimatedOnboardingScreen 
-                onStartClick={handleStartClick} 
-                onLoginClick={handleLoginClick} 
+            <ScreenLayout>
+              <AnimatedOnboardingScreen
+                onStartClick={() => navigate("home")}
+                onLoginClick={() => navigate("login")}
               />
-            </div>
+            </ScreenLayout>
           )}
           {currentScreen === "login" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <LoginScreen 
-                onBackClick={handleBackToOnboarding} 
-                onLoginSuccess={handleLoginSuccess} 
+            <ScreenLayout>
+              <LoginScreen
+                onBackClick={() => navigate("onboarding")}
+                onLoginSuccess={() => navigate("home")}
               />
-            </div>
+            </ScreenLayout>
           )}
           {currentScreen === "home" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <HomeScreen onTabChange={handleTabChange} onGoalSettingClick={handleGoalSettingClick} />
-            </div>
+            <ScreenLayout>
+              <HomeScreen onTabChange={handleTabChange} onGoalSettingClick={() => navigate("goalSetting")} />
+            </ScreenLayout>
           )}
           {currentScreen === "record" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <RecordScreen 
-                onTabChange={handleTabChange} 
-                onGolfClick={handleGolfClick}
-                onPilatesClick={handlePilatesClick}
-                onRunningClick={handleRunningClick}
+            <ScreenLayout>
+              <RecordScreen
+                onTabChange={handleTabChange}
+                onGolfClick={() => handleExerciseClick("golf")}
+                onPilatesClick={() => handleExerciseClick("pilates")}
+                onRunningClick={() => handleExerciseClick("running")}
               />
-            </div>
+            </ScreenLayout>
           )}
           {currentScreen === "golfCoaching" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <GolfCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
-            </div>
+            <ScreenLayout>
+              <GolfCoachingScreen onBackClick={() => navigate("record")} onComplete={() => navigate("loading")} />
+            </ScreenLayout>
           )}
           {currentScreen === "pilatesCoaching" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <PilatesCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
-            </div>
+            <ScreenLayout>
+              <PilatesCoachingScreen onBackClick={() => navigate("record")} onComplete={() => navigate("loading")} />
+            </ScreenLayout>
           )}
           {currentScreen === "runningCoaching" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <RunningCoachingScreen onBackClick={handleBackToRecord} onComplete={handleCoachingComplete} />
-            </div>
+            <ScreenLayout>
+              <RunningCoachingScreen onBackClick={() => navigate("record")} onComplete={() => navigate("loading")} />
+            </ScreenLayout>
           )}
           {currentScreen === "loading" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <LoadingScreen onBackClick={handleBackFromLoading} />
-            </div>
+            <ScreenLayout>
+              <LoadingScreen onBackClick={() => navigate("record")} />
+            </ScreenLayout>
           )}
           {currentScreen === "report" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <ReportScreen exerciseType={currentExerciseType} onBackClick={handleBackFromReport} onTabChange={handleTabChange} />
-            </div>
+            <ScreenLayout>
+              <ReportScreen exerciseType={currentExerciseType} onBackClick={() => navigate("record")} onTabChange={handleTabChange} />
+            </ScreenLayout>
           )}
           {currentScreen === "reportList" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <ReportListScreen onTabChange={handleTabChange} onReportClick={handleReportClick} />
-            </div>
+            <ScreenLayout>
+              <ReportListScreen onTabChange={handleTabChange} onReportClick={() => navigate("report")} />
+            </ScreenLayout>
           )}
           {currentScreen === "my" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+            <ScreenLayout>
               <MyScreen onTabChange={handleTabChange} />
-            </div>
+            </ScreenLayout>
           )}
           {currentScreen === "goalSetting" && (
-            <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-              <GoalSettingScreen onBackClick={handleBackFromGoalSetting} />
-            </div>
+            <ScreenLayout>
+              <GoalSettingScreen onBackClick={() => navigate("home")} />
+            </ScreenLayout>
           )}
         </div>
       </div>
